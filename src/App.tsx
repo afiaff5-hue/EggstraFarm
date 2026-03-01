@@ -233,6 +233,16 @@ const Footer = () => {
 // --- Pages ---
 
 const Home = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=info@eggstrafarm.com&su=Tanya%20Eggstra%20Farm&body=${encodeURIComponent(
+    `Halo Eggstra Farm,\n\nNama: ${formData.name}\nEmail: ${formData.email}\n\nPesan:\n${formData.message}`
+  )}`;
+
   return (
     <>
       {/* Hero */}
@@ -328,16 +338,21 @@ const Home = () => {
               <span className="text-amber-600 font-bold text-sm uppercase tracking-widest mb-4 block">Hubungi Kami</span>
               <h2 className="text-4xl font-bold text-slate-900 mb-8">Siap Melayani Kebutuhan Telur Anda</h2>
               <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="bg-amber-100 p-3 rounded-xl text-amber-600">
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=Jl.+Peternakan+Hijau+No.+45,+Sukabumi,+Jawa+Barat"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 group hover:bg-amber-50 p-2 rounded-2xl transition-all"
+                >
+                  <div className="bg-amber-100 p-3 rounded-xl text-amber-600 group-hover:bg-amber-500 group-hover:text-white transition-all">
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
                     <div className="text-sm font-bold text-slate-900">Alamat Farm</div>
-                    <div className="text-slate-600">Jl. Peternakan Hijau No. 45, Sukabumi, Jawa Barat</div>
+                    <div className="text-slate-600 group-hover:text-amber-700 transition-colors">Jl. Peternakan Hijau No. 45, Sukabumi, Jawa Barat</div>
                   </div>
-                </div>
-                <div className="flex items-center gap-4">
+                </a>
+                <div className="flex items-center gap-4 p-2">
                   <div className="bg-amber-100 p-3 rounded-xl text-amber-600">
                     <Phone className="w-6 h-6" />
                   </div>
@@ -350,24 +365,47 @@ const Home = () => {
             </div>
 
             <div className="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm">
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-slate-700">Nama Lengkap</label>
-                    <input type="text" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-500 outline-none" placeholder="John Doe" />
+                    <input 
+                      type="text" 
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-500 outline-none" 
+                      placeholder="John Doe" 
+                    />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-slate-700">Email</label>
-                    <input type="email" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-500 outline-none" placeholder="john@example.com" />
+                    <input 
+                      type="email" 
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-500 outline-none" 
+                      placeholder="john@example.com" 
+                    />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-slate-700">Pesan</label>
-                  <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-500 outline-none" placeholder="Tuliskan pesan Anda..."></textarea>
+                  <textarea 
+                    rows={4} 
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-500 outline-none" 
+                    placeholder="Tuliskan pesan Anda..."
+                  ></textarea>
                 </div>
-                <button className="bg-amber-500 hover:bg-amber-600 text-white w-full py-4 rounded-xl font-bold transition-all">
+                <a 
+                  href={gmailUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-amber-500 hover:bg-amber-600 text-white w-full py-4 rounded-xl font-bold transition-all text-center block shadow-lg shadow-amber-500/20"
+                >
                   Kirim Pesan
-                </button>
+                </a>
               </form>
             </div>
           </div>
