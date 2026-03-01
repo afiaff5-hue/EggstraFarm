@@ -347,7 +347,7 @@ const Home = () => {
 
             {/* Phone */}
             <a 
-              href="https://wa.me/6281353455755"
+              href="https://wa.me/1234567890"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all text-center group"
@@ -356,7 +356,7 @@ const Home = () => {
                 <Phone className="w-8 h-8" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-2">Telepon / WhatsApp</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">+62 813 5345 5755</p>
+              <p className="text-slate-600 text-sm leading-relaxed">1234567890</p>
               <div className="mt-4 text-amber-600 text-xs font-bold uppercase tracking-wider">Hubungi WhatsApp</div>
             </a>
 
@@ -503,7 +503,7 @@ const ProductsPage = () => {
                     ))}
                   </div>
                 <a 
-                  href="https://wa.me/6281353455755" 
+                  href="https://wa.me/1234567890" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-slate-900 text-white w-full py-3 rounded-xl font-bold hover:bg-amber-500 transition-colors flex items-center justify-center gap-2"
