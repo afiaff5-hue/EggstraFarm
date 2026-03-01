@@ -264,7 +264,10 @@ const Home = () => {
               Kami berkomitmen menyajikan telur berkualitas tinggi dengan standar kebersihan internasional dan kesejahteraan ayam yang terjaga.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/produk" className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group">
+              <Link 
+                to="/produk" 
+                className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2 group"
+              >
                 Lihat Produk Kami
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -340,7 +343,7 @@ const Home = () => {
                   </div>
                   <div>
                     <div className="text-sm font-bold text-slate-900">Telepon / WhatsApp</div>
-                    <div className="text-slate-600">+62 812 3456 7890</div>
+                    <div className="text-slate-600">+62 813 5345 5755</div>
                   </div>
                 </div>
               </div>
@@ -495,10 +498,15 @@ const ProductsPage = () => {
                       </span>
                     ))}
                   </div>
-                  <button className="bg-slate-900 text-white w-full py-3 rounded-xl font-bold hover:bg-amber-500 transition-colors flex items-center justify-center gap-2">
-                    <ShoppingBag className="w-4 h-4" />
-                    Pesan via WhatsApp
-                  </button>
+                <a 
+                  href="https://wa.me/6281353455755" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-slate-900 text-white w-full py-3 rounded-xl font-bold hover:bg-amber-500 transition-colors flex items-center justify-center gap-2"
+                >
+                  <ShoppingBag className="w-4 h-4" />
+                  Pesan via WhatsApp
+                </a>
                 </div>
               </motion.div>
             ))}
